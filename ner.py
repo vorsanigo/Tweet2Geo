@@ -1,21 +1,18 @@
 import pandas as pd
 import logging
 from tqdm import tqdm
-import time
 import stanza
-import time
 from stanza.server import CoreNLPClient
 from stanza.pipeline.core import DownloadMethod
 import polyglot
 from polyglot.text import Text, Word
 import csv
 from preprocessing import cleaning_ner_loc
-import numpy as np
+
 
 #stanza.download_corenlp_models(model='italian', version='4.2.2', dir="~/stanza_corenlp")
 
 
-# todo
 # todo NB: PROBLEM -> IF YOU LOAD THE STNAZA MODELS ALL TOGETHER -> MEMORY ISSUES
 
 
@@ -231,172 +228,3 @@ class NERLocation():
                 pbar.close()
 
         return list_tot_entities
-
-
-
-# coreNLP languages
-# NB: peremeters -> tokenize.whitespace (token separeted by ' '), ssplit.eolonly (token separated by \n)
-# used for pretokenized text -> to uncomment if we use not tokenized text
-dict_corenlp = {'it': {'cdc_tokenize.model': 'edu/stanford/nlp/models/cdc-tokenize/it-tokenizer.ser.gz',
-                       'cdc_tokenize.multiWordRules': 'edu/stanford/nlp/models/cdc-tokenize/it-multiword.txt',
-                       #'tokenize.whitespace': 'true',
-                       #'ssplit.eolonly' : 'true',
-                       'ner.model': 'edu/stanford/nlp/models/ner/italian.crf.ser.gz',
-                       'ner.applyFineGrained' : 'false',
-                       'ner.applyNumericClassifiers' : 'false',
-                       'ner.useSUTime' : 'false'
-                       },
-                'en': {#'tokenize.whitespace': 'true',
-                       #'ssplit.eolonly' : 'true',
-                       'ner.language' : 'en',
-                       'ner.applyFineGrained' : 'false'},
-                'fr': {'tokenize.language': 'fr',
-                       #'tokenize.whitespace': 'true',
-                       #'ssplit.eolonly' : 'true',
-                      'ner.model': 'edu/stanford/nlp/models/ner/french-wikiner-4class.crf.ser.gz',
-                       'ner.applyFineGrained' : 'false',
-                       'ner.applyNumericClassifiers' : 'false',
-                       'ner.useSUTime' : 'false'
-                       },
-                'de': {'tokenize.language': 'de',
-                       'tokenize.postProcessor' : 'edu.stanford.nlp.international.german.process.GermanTokenizerPostProcessor',
-                       #'tokenize.whitespace': 'true',
-                       #'ssplit.eolonly' : 'true',
-                       'ner.model': 'edu/stanford/nlp/models/ner/german.distsim.crf.ser.gz',
-                        'ner.applyFineGrained' : 'false',
-                       'ner.applyNumericClassifiers' : 'false',
-                       'ner.useSUTime' : 'false'
-                       },
-                'hu': {'cdc_tokenize.model': 'edu/stanford/nlp/models/cdc-tokenize/hu-tokenizer.ser.gz',
-                       #'tokenize.whitespace': 'true',
-                       #'ssplit.eolonly' : 'true',
-                       'ner.model': 'edu/stanford/nlp/models/ner/hungarian.crf.ser.gz',
-                       'ner.applyFineGrained' : 'false',
-                       'ner.applyNumericClassifiers' : 'false',
-                       'ner.useSUTime' : 'false'
-                       },
-                'es': {'tokenize.language': 'es',
-                       #'tokenize.whitespace': 'true',
-                       #'ssplit.eolonly' : 'true',
-                       'ner.model': 'edu/stanford/nlp/models/ner/spanish.ancora.distsim.s512.crf.ser.gz',
-                        'ner.applyFineGrained' : 'false',
-                       'ner.applyNumericClassifiers' : 'false',
-                       'ner.useSUTime' : 'false',
-                       'ner.language' : 'es'
-                       },
-                'zh': {'tokenize.language': 'zh',
-                       #'tokenize.whitespace': 'true',
-                       #'ssplit.eolonly' : 'true',
-                       'segment.model' : 'edu/stanford/nlp/models/segmenter/chinese/ctb.gz',
-                        'segment.sighanCorporaDict' : 'edu/stanford/nlp/models/segmenter/chinese',
-                        'segment.serDictionary' : 'edu/stanford/nlp/models/segmenter/chinese/dict-chris6.ser.gz',
-                        'segment.sighanPostProcessing' : 'true',
-                       'ner.language': 'chinese',
-                       'ner.model': 'edu/stanford/nlp/models/ner/chinese.misc.distsim.crf.ser.gz',
-                        'ner.applyFineGrained' : 'false',
-                       'ner.applyNumericClassifiers' : 'false',
-                        'ner.useSUTime' : 'false'
-                       },
-                'not listed': {#'tokenize.whitespace': 'true',
-                                #'ssplit.eolonly' : 'true',
-                               'ner.applyFineGrained' : 'false'},
-                }
-
-# stanza languages
-list_lang_stanza = ['af', 'ar', 'bg', 'zh', 'nl', 'en', 'fi', 'fr', 'de', 'hu', 'it', 'my', 'ru', 'es', 'uk', 'vi']
-
-
-
-
-'''x = NERLocation(pretokenized=False)
-x.client.start()
-
-data = pd.read_csv('360_italy_cleaned.csv', sep='\t')
-
-q = x.ner_tot(data, 'location', 'lang', 'user', dict_corenlp, list_lang_stanza, 'unicode_flags.csv',
-              'coreNLP italy.tsv', 'coreNLP italy doc.tsv', org=False)
-
-x.client.stop()'''
-
-'''df_gt = pd.read_csv('dataset annotated 360 italy/nominatim/nominatim fully annotated.csv', sep='\t')
-df_ner = pd.read_csv('ner italy dataset/coreNLP italy res world org.csv', sep='\t')'''
-
-'''data = pd.read_csv('650_world_cleaned.csv', sep='\t')
-''''''df_gt = pd.read_csv('dataset annotated 360 world/new/nominatim fully annotated 360.csv', sep='\t')
-df_ner = pd.read_csv('ner world dataset/coreNLP world res world org merged org FINAL.csv', sep='\t')'''
-
-'''data = data.rename(columns={'location': 'document'})
-df_gt = df_gt.rename(columns={'location to find': 'cleaned_loc'})
-print(np.where(df_ner.duplicated(subset=['user', 'document'])))
-
-print(df_gt)
-print(data)
-print(df_ner)
-print(data.columns)
-new_df = pd.merge(data, df_gt[['user', 'cleaned_loc', 'trash location', 'exact location', 'embedded location', 'multiple location', 'sentence', 'emoji', 'slang', 'adjective', 'coordinates', 'other']], on=['user', 'cleaned_loc'], how='inner')
-print(new_df)
-new_df1 = pd.merge(new_df, df_ner, on=['user', 'document'], how='inner').drop_duplicates(['user', 'document'])
-new_df1.to_csv('FINAL RES italy.csv', sep='\t')
-print(new_df1)'''
-
-'''df_ner = pd.read_csv('ner italy dataset/coreNLP italy res world org org.csv', sep='\t')
-print(new_df[['user', 'document']])
-print(df_ner[['user', 'document']])
-new_df1 = pd.merge(new_df, df_ner, on=['user', 'document'], how='inner').drop(columns=['Unnamed: 0_x', 'Unnamed: 0_y'])
-print(new_df1)
-new_df1.to_csv('coreNLP italy res world org TOT org.csv', sep='\t')'''
-
-
-'''print(len(df_gt['user'].unique()))
-df_gt['dupl'] = df_gt.duplicated(subset=['user'], keep=False)
-print(df_gt[df_gt['dupl'] == True].sort_values(['user']))
-df_gt[df_gt['dupl'] == True].sort_values(['user']).to_csv('prova.csv', sep='\t')
-
-print(len(data['user'].unique()))
-data['dupl'] = data.duplicated(subset=['user'], keep=False)
-print(data[data['dupl'] == True].sort_values(['user']))
-data[data['dupl'] == True].sort_values(['user']).to_csv('prova1.csv', sep='\t')'''
-
-'''data = data['cleaned_loc'].isna().values
-print(data)
-index = np.where(not pd.isna(data['cleaned_loc']))
-data = data.loc[(data.index.isin(index))]
-print(len(data))'''
-
-
-
-
-'''df_ner = pd.read_csv('coreNLP italy doc org.tsv', sep='\t')
-print(df_ner)'''
-'''df_ner = df_ner.rename(columns={'document': 'location'})
-
-#new_df1 = pd.merge(new_df, df_ner, on=['user', 'location'], how='right').drop(columns=['Unnamed: 0'])
-new_df1 = pd.merge(new_df, df_ner, on=['user', 'location'], how='inner').drop(columns=['Unnamed: 0'])
-print(new_df1)
-new_df1.to_csv('coreNLP italy doc TOT org.tsv', sep='\t')'''
-
-'''new_df.to_csv('new df.csv', sep='\t', index=False)
-print(new_df)
-print(df_gt['user'].duplicated(keep=False))
-print(type(df_gt['user'].duplicated(keep=False)))
-x = np.array([i for i in df_gt['user'].duplicated(keep=False)])
-print(x)
-print(np.where(x == 1))
-print(df_gt.duplicated(subset=['user'], keep=False))
-d = df_gt.groupby(['user'])
-for el in d:
-    print(el)
-print(df_gt.index.isin(np.where(df_gt['user'].duplicated(keep=False) == 'True')))
-print(df_gt['user'].duplicated(keep=False).where(df_gt['user'].duplicated(keep=False) is True))
-df_gt = df_gt.loc[df_gt.index.isin((df_gt['user'].duplicated(keep=False)).where(df_gt['user'].duplicated(keep=False) is True))]
-print(df_gt)'''
-
-
-'''print(len(df_gt['user'].unique()))
-df_gt['dupl'] = df_gt.duplicated(subset=['user'], keep=False)
-print(df_gt[df_gt['dupl'] == True].sort_values(['user']))
-df_gt[df_gt['dupl'] == True].sort_values(['user']).to_csv('prova.csv', sep='\t')'''
-'''print(data.sort_values(['user'])['user'].duplicated(keep=False))
-print(df_ner.sort_values(['user'])['user'].duplicated(keep=False))'''
-'''df = pd.read_csv('documents_zh.tsv', sep='\t')
-print(df)'''
