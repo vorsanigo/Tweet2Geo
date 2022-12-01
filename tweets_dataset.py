@@ -4,8 +4,16 @@ import pandas as pd
 
 
 class Tweets_dataset():
+    
 
-    def create_df(self, tweets_file, df):
+    def create_df(self, tweets_file, df, tweets_num):
+        '''
+        From tweets, create dataset
+        :param tweets_file: file with tweets
+        :param df: df to create
+        :param tweets_num: number of tweets to put into the df
+        :return: created df of tweets
+        '''
 
         ids = []
         i = 0
@@ -13,17 +21,12 @@ class Tweets_dataset():
 
             for line in tweets:
 
-                if i < 35000:
-                #if i > 33789:
-                    print(i)
+                if i < tweets_num:
 
-                    #print('lllllllllllllllllinnnn', line)
                     tweet_json = json.loads(line)
 
                     text = None
 
-                    #print(tweet_json.keys())
-                    #print(tweet_json['id'])
                     if 'id' in tweet_json.keys():
                         id = int(tweet_json['id'])
                     else:
@@ -118,7 +121,6 @@ class Tweets_dataset():
                         types = []
                         referenced_tweets_user = []
                         for el in tweet_json['referenced_tweets']:
-                            print(el)
                             if 'type' in el.keys():
                                 types.append(el['type'])
                                 if el['type'] == 'retweeted':
@@ -201,8 +203,7 @@ def main(tweets_file, output_file):
 
     transformer = Tweets_dataset()
     df = pd.DataFrame(columns=[])
-    final_df = transformer.create_df(tweets_file, df)
-    print(final_df)
+    final_df = transformer.create_df(tweets_file, df, 30)
     final_df.to_csv(output_file)
 
 
