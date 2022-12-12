@@ -1,7 +1,10 @@
+'''
+Functions to extract locations and map them through a geocoding system (Nominatim)
+'''
+
 # 1) twitter api -> download tweets
 # 2) tweets dataset -> put tweets in a dataset
 # 3) tweets flux -> extract locations and map locations to geocoding system
-import pandas as pd
 
 from nominatim_ner_geocoding import *
 
@@ -62,4 +65,4 @@ def main(locations_file, output_loc_file1, output_loc_file2):
     find_locations(output_loc_file1, 'id', 'loc_text', output_loc_file2)
 
 if __name__ == '__main__':
-    main('Nations tweets/BE1.csv', 'Nations tweets/0 locations/BE_loc1.csv', 'Nations tweets/0 locations/BE_found_loc1.csv')
+    main('Nations tweets/AT1.csv', 'Nations tweets/0 locations/AT_loc1.csv', 'Nations tweets/0 locations/AT_found_loc1.csv')
