@@ -38,9 +38,10 @@ class Twitter_query():
         mintime = int(time.mktime(start_date.timetuple()))
         maxtime = int(time.mktime(end_date.timetuple()))
         nb_slots = (maxtime - mintime)//(minutes*60)
+        print('s', nb_slots)
         # slots list
         list_random = []
-        for RECORD in range(100):
+        for RECORD in range(nb_slots):
             random_slot = random.randint(0, nb_slots)
             random_ts = mintime + minutes * 60 * random_slot
             random_datetime = datetime.datetime.fromtimestamp(random_ts)
@@ -50,7 +51,7 @@ class Twitter_query():
 
 
 
-    def collect_tweets_date(self, query, output_file, list_random, max_results, slots_minutes):
+    def collect_tweets_date(self, query, output_file, info_file, list_random, max_results, slots_minutes):
         '''
         Collect n tweets in a time range within different random slots
         :param list_random: random time slots
@@ -65,16 +66,22 @@ class Twitter_query():
         count_tweets = 0
         # count slots
         list_random_count = 0
-
+        # count year
+        year = 0
+        print(list_random[0][3])
         tw = Twarc2(bearer_token=BEARER_TOKEN)
 
         # retrieve desired quantity of tweets
         with open(output_file, 'a+') as file:
             while count_tweets < max_results:
-                if list_random_count < len(list_random):
+                print('ccccccccccccccc')
+                if list_random_count < len(list_random[year]):
+                    print('dddddddddddddddddddddddddd')
+                    print(list_random[year][list_random_count])
                     for page in tw.search_all(query=query,
-                                           start_time=list_random[list_random_count]-datetime.timedelta(minutes=slots_minutes),
-                                           end_time=list_random[list_random_count]):
+                                           start_time=list_random[year][list_random_count]-datetime.timedelta(minutes=slots_minutes),
+                                           end_time=list_random[year][list_random_count]):
+                        print('zzzzzzzzzzzzzzzzz')
                         print('\n\n')
                         tweets = expansions.flatten(page)
                         count_tweets_page = 0
@@ -84,7 +91,16 @@ class Twitter_query():
                             file.write('%s\n' % json.dumps(tweets[count_tweets_page]))
                             count_tweets += 1
                             count_tweets_page += 1
-                list_random_count += 1
+                else:
+                    break
+                year += 1
+                if year == 4:
+                    list_random_count += 1
+                    year = 0
+
+        with open(info_file, 'a+') as file:
+            file.write('Number of slots of ' + str(slots_minutes) + ': ' + str(list_random_count))
+
 
 
 def main():
@@ -92,20 +108,26 @@ def main():
     tweets_collector = Twitter_query()
 
     # query
-    query = 'place_country:IT'
-    # start date
-    start_date = datetime.datetime(2017, 1, 1, 0, 0, 0)
-    # end_date
-    end_date = datetime.datetime(2022, 12, 1, 0, 0, 0)
+    query = 'place_country:BG'
     # max number of tweets to retrieve
-    max_results = 300
+    max_results = 30000
     # slots minutes
-    slots_minutes = 15
+    slots_minutes = 2
     # output file
-    output_file = 'output.txt'
+    output_file = 'BG1'
+    # info file
+    info_file = 'BG1_info'
 
-    list_random = tweets_collector.create_slots(start_date, end_date, slots_minutes)
-    tweets_collector.collect_tweets_date(query, output_file, list_random, max_results, slots_minutes)
+    list_random_2019 = tweets_collector.create_slots(datetime.datetime(2019, 1, 1, 0, 0, 0), datetime.datetime(2019, 12, 31, 23, 59, 59), slots_minutes)
+    list_random_2020 = tweets_collector.create_slots(datetime.datetime(2020, 1, 1, 0, 0, 0), datetime.datetime(2020, 12, 31, 23, 59, 59), slots_minutes)
+    list_random_2021 = tweets_collector.create_slots(datetime.datetime(2021, 1, 1, 0, 0, 0), datetime.datetime(2021, 12, 31, 23, 59, 59), slots_minutes)
+    list_random_2022 = tweets_collector.create_slots(datetime.datetime(2022, 1, 1, 0, 0, 0), datetime.datetime(2022, 12, 1, 23, 59, 59), slots_minutes)
+    list_random = []
+    list_random.append(list_random_2019)
+    list_random.append(list_random_2020)
+    list_random.append(list_random_2021)
+    list_random.append(list_random_2022)
+    tweets_collector.collect_tweets_date(query, output_file, info_file, list_random, max_results, slots_minutes)
 
 
 if __name__ == '__main__':
