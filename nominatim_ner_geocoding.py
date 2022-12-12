@@ -1,3 +1,7 @@
+'''
+Class to perform geocoding
+'''
+
 import ast
 import csv
 import pandas as pd
@@ -14,6 +18,8 @@ class NominatimLocGeocoder():
     '''
     Nominatim geocoder based on OpenStreetMap
     Attributes:
+        - server_url
+        - address_details
         - format: results format
         - maxRows: max number of results
         - lang: results language
@@ -826,6 +832,8 @@ class NominatimLocGeocoder():
         :param format:
         :param maxRows:
         :param lang:
+        :param flags: list of flags info
+        :param weird_words: list of weird words
         :return: list of dictionaries containing the found locations using nominatim or NAN if there are no results for
         the text locations
         '''
