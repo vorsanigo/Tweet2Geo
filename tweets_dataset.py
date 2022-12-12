@@ -1,3 +1,7 @@
+'''
+Class to, given the downloaded tweets in a txt format, save them in a csv format
+'''
+
 import json
 import pandas as pd
 
