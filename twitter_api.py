@@ -1,11 +1,12 @@
+'''
+Class to randomly create Twitter queries over a certain time period
+'''
+
 # how to make queries -> https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query
 # twarc -> https://github.com/DocNow/twarc | https://github.com/DocNow/twarc/tree/main/twarc
 
-# 6 years -> divide into ranges of 15 minutes, take avg time to have 30k tweets, divide it by 96 (1440/15) to have the
-# number of time ranges of 15 min, take randomly that number of time ranges, add 15 minutes to each of them to have start
-# time and end time
-# download, save tweets in those time ranges until we have 30k tweets
-# consider fields of interest for us and put them in a dataset
+# 4 years -> divide into ranges of 2 minutes
+# keep taking time ranges of 2 minutes until we have 30000 tweets
 
 
 from twarc import Twarc2, expansions
@@ -17,6 +18,7 @@ import json
 
 API_KEY = "qnB2yT0gIDuzimWxrw3lpir14"
 API_KEY_SECRET = "EpiWl4qmpADUEp2TPveKIXQYR5ncWuZqApJYNsW27GkVq1JrAm"
+#BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAMBRXgEAAAAAAXxbjPu66HeCzfFM2prtBiEPR6w%3DgOqKLwXybos8wZ2VeYvGVP31mrwWN0DUkbrTt6v51rQEDg6Rmzz"
 BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAHGhbQEAAAAAnY1dM1zIBEQucG%2F2Aij%2Bx8ksoR0%3DVAdbIz5Hk43FAdwvsCfNJX9QyhEcQKuDmpjftVSEvV0IsZjMWF"
 ACCESSEN_TOKEN = "1509526212959354889-FUZhKPYqGhHdVOmMRddvoWbW8vCj88"
 TOKEN_SECRET = "wKT3pakdFNM1XuSDhjtZVDYzcAWjd7gin9vN5DfOw7MI0"
@@ -74,14 +76,11 @@ class Twitter_query():
         # retrieve desired quantity of tweets
         with open(output_file, 'a+') as file:
             while count_tweets < max_results:
-                print('ccccccccccccccc')
                 if list_random_count < len(list_random[year]):
-                    print('dddddddddddddddddddddddddd')
                     print(list_random[year][list_random_count])
                     for page in tw.search_all(query=query,
                                            start_time=list_random[year][list_random_count]-datetime.timedelta(minutes=slots_minutes),
                                            end_time=list_random[year][list_random_count]):
-                        print('zzzzzzzzzzzzzzzzz')
                         print('\n\n')
                         tweets = expansions.flatten(page)
                         count_tweets_page = 0
@@ -108,15 +107,15 @@ def main():
     tweets_collector = Twitter_query()
 
     # query
-    query = 'place_country:BG'
+    query = 'place_country:IT'
     # max number of tweets to retrieve
     max_results = 30000
     # slots minutes
     slots_minutes = 2
     # output file
-    output_file = 'BG1'
+    output_file = 'IT1'
     # info file
-    info_file = 'BG1_info'
+    info_file = 'IT1_info'
 
     list_random_2019 = tweets_collector.create_slots(datetime.datetime(2019, 1, 1, 0, 0, 0), datetime.datetime(2019, 12, 31, 23, 59, 59), slots_minutes)
     list_random_2020 = tweets_collector.create_slots(datetime.datetime(2020, 1, 1, 0, 0, 0), datetime.datetime(2020, 12, 31, 23, 59, 59), slots_minutes)
