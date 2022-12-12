@@ -4,7 +4,7 @@ import pandas as pd
 
 
 class Tweets_dataset():
-    
+
 
     def create_df(self, tweets_file, df, tweets_num):
         '''
@@ -203,11 +203,11 @@ def main(tweets_file, output_file):
 
     transformer = Tweets_dataset()
     df = pd.DataFrame(columns=[])
-    final_df = transformer.create_df(tweets_file, df, 30)
+    final_df = transformer.create_df(tweets_file, df, 30000)
     final_df.to_csv(output_file)
 
 
 if __name__ == '__main__':
-    tweets_file = 'output.txt'
-    output_file = 'dataset.csv'
+    tweets_file = 'Nations tweets/AT1'
+    output_file = 'Nations tweets/AT1.csv'
     main(tweets_file, output_file)
