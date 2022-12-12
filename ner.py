@@ -1,3 +1,7 @@
+'''
+Class to perform NER on text
+'''
+
 import pandas as pd
 import logging
 from tqdm import tqdm
