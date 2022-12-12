@@ -1,3 +1,7 @@
+'''
+Main to perform geocoding, choosing between "only Nominatim" and "Nominatim + NER"
+'''
+
 import argparse
 import os
 import json
@@ -64,7 +68,7 @@ lang_stanza_file = os.path.join(os.getcwd(), stanza_file)
 # only nominatim -> we use function that writes on csv step by step
 if args.operation_type == 'nominatim':
 
-    df = pd.read_csv(args.data, sep='\t').head(10)
+    df = pd.read_csv(args.data, sep='\t')
 
     geocoder.find_tot_loc_nominatim_pipeline_tsv(df, args.loc_field, args.user_field, file_flags, file_words,
                                                  args.italy_world, args.output)
@@ -74,7 +78,7 @@ if args.operation_type == 'nominatim':
 # nominatim + ner + nominatim -> we use function that writes on csv step by step
 elif args.operation_type == 'nominatim_ner':
 
-    df = pd.read_csv(args.data, sep='\t').head(10)
+    df = pd.read_csv(args.data, sep='\t')
 
     with open(lang_corenlp_file) as corenlp:
         lang_corenlp = json.load(corenlp)
