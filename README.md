@@ -24,3 +24,10 @@ a certain time range and from a certain country)
 - `tweets_dataset.py`, to create a dataset of tweets with their fields saved in different columns
 - `tweets_flux.py`, to extract locations and map them using *Nominatim* by calling a function from 
 `nominatim_ner_geocoding.py`
+
+
+## Requirements
+
+Some files/tools are required to run some scripts. In particular, all the scripts that use `ner.py` need 
+*CoreNLP*/*Stanza* models, while to perform preprocessing it can be required to have the two files `unicode_flags.csv` 
+and `weird_words.csv`
