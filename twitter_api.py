@@ -104,11 +104,11 @@ class Twitter_query():
 
 
 
-def main(country_code, output_file, info_file):
+def main(query_str, output_file, info_file):
     '''
     Given the country code, it makes the query to randomly retrieve tweets in certain time range, so it saves them and
     the number of time slots needed to download them
-    :param country_code: country code (ISO 2, capital letters)
+    :param query_str: twitter API query (str)
     :param output_file: output file (str)
     :param info_file: information file (str)
     :return:
@@ -117,7 +117,7 @@ def main(country_code, output_file, info_file):
     tweets_collector = Twitter_query()
 
     # query
-    query = 'place_country:' + country_code
+    query = query_str
     # max number of tweets to retrieve
     max_results = 30000
     # slots minutes
@@ -140,4 +140,4 @@ def main(country_code, output_file, info_file):
 
 
 if __name__ == '__main__':
-    main('PT', 'PT1', 'PT1_info')
+    main('place_country:PT', 'PT1', 'PT1_info')
