@@ -28,6 +28,7 @@ a certain time range and from a certain country)
 
 ## Requirements
 
-Some files/tools are required to run some scripts. In particular, all the scripts that use `ner.py` need 
+- Requirements are listed in the `requirements.txt` file
+- Some files/tools are required to run some scripts. In particular, all the scripts that use `ner.py` need 
 *CoreNLP*/*Stanza* models, while to perform preprocessing it can be required to have the two files `unicode_flags.csv` 
 and `weird_words.csv`, which can be found here in the repository
