@@ -197,8 +197,8 @@ def preprocess_tweet_text(text, lang): # it puts everything to lower case -> we 
     '''
     It preprocesses the tweet text, we use it only on hastags (it divides words in hashtags) after havin extracted them
     since we want to keep the text as given to extract Named Entities
-    :param text:
-    :param lang:
+    :param text: text
+    :param lang: text's language (but we set English since is the one we know that works -> check it with FBK)
     :return:
     '''
 
