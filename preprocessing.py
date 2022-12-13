@@ -10,7 +10,7 @@ import json
 def remove_accents(name):
     '''
     Given a string, it removes the accents
-    :param name:
+    :param name: word str
     :return:
     '''
 
@@ -46,16 +46,14 @@ def remove_accents(name):
 def remove_special(my_string, weird_words):
     '''
     Remove special characters (non alphanumeric) and weird words
-    :param my_string:
-    :param weird_words:
+    :param my_string: string
+    :param weird_words: weird words list
     :return:
     '''
 
     #my_string = unidecode.unidecode(my_string)  # eliminate weird accents
     #my_string = remove_accents(my_string)
     #my_string = re.sub(r'[^a-zA-Z0-9А-яء-ي]+', ' ', my_string)  # eliminate what is not letter or number
-
-    #my_string = remove_accents(my_string)
 
     my_string = my_string.lower()
     for c in my_string:
@@ -76,8 +74,8 @@ def remove_special(my_string, weird_words):
 def transform_emoji(my_string, list_flags):
     '''
     Keep only flags emojis, remove others
-    :param my_string:
-    :param list_flags:
+    :param my_string: string
+    :param list_flags: list of flags
     :return:
     '''
 
@@ -95,39 +93,14 @@ def transform_emoji(my_string, list_flags):
     return my_string
 
 
-def cleaning_country(country):
-    '''
-    Given a country, it removes its accents and put to lower case match with locations
-    :param country:
-    :return:
-    '''
-
-    country_1 = remove_accents(country)
-    country_2 = country_1.lower()
-
-    return country_2
-
-def cleaning_country_tot(file_countries, list_lang):
-    '''
-    Given the df of countries, it returns the df with cleaned countries
-    :param file_countries:
-    :param list_lang:
-    :return:
-    '''
-
-    df = pd.read_csv(file_countries)
-
-    for el in list_lang:
-        df[el] = df[el].apply(lambda x: cleaning_country(x))
-
-    df.to_csv('./world_countries_cleaned.csv', sep = '\t')
-
-    return df
-
-#print(cleaning_country_tot('world.csv', ['ar', 'bg', 'cs', 'da', 'de', 'el', 'en', 'eo', 'es', 'et', 'eu', 'fi', 'fr', 'hu', 'it', 'ja', 'ko', 'lt', 'nl', 'no', 'pl', 'pt', 'ro', 'ru', 'sk', 'sv', 'th', 'uk', 'zh', 'zh-tw']))
-
-
 def cleaning_nominatim(starting_location, list_flags, weird_words):
+    '''
+    Given a starting location, a list of flags, and a list of weird words, it returns the cleaned location
+    :param starting_location: string of sarting location
+    :param list_flags: list of flags
+    :param weird_words: list of weird words
+    :return: cleaned location
+    '''
 
     cleaned_loc = transform_emoji(starting_location, list_flags)
     cleaned_loc = remove_special(cleaned_loc, weird_words)
@@ -139,11 +112,11 @@ def cleaning_nominatim(starting_location, list_flags, weird_words):
 def cleaning(location_dataset, unicodes_flags_dataset, weird_words_dataset, output_file):
     '''
     Given the dataset with locations, the flags unicodes, the weird words, it does the locations cleaning
-    :param location_dataset:
-    :param unicodes_flags_dataset:
-    :param weird_words_dataset:
-    :param output_file:
-    :return:
+    :param location_dataset: path of dataset of locations
+    :param unicodes_flags_dataset: path of dataset of unicodes flags
+    :param weird_words_dataset: path of dataset of weird words
+    :param output_file: path of output file
+    :return: cleaned dataset of locations
     '''
 
     df_unicodes = pd.read_csv(unicodes_flags_dataset, sep='\t') # TODO put ue flag in the list
@@ -172,9 +145,9 @@ def cleaning(location_dataset, unicodes_flags_dataset, weird_words_dataset, outp
 def cleaning_ner_loc(my_string, list_flags):
     '''
     It computes cleaning on tweet field location for NER
-    :param my_string:
-    :param list_flags:
-    :return:
+    :param my_string: location string
+    :param list_flags: list of flags
+    :return: cleaned string
     '''
 
     my_string = transform_emoji(my_string, list_flags)
@@ -190,8 +163,8 @@ def cleaning_ner_loc(my_string, list_flags):
 def replace_URL(text):
     '''
     It replaces url address with "URL"
-    :param text:
-    :return:
+    :param text: text
+    :return: cleaned text
     '''
 
     text = re.sub('((www\.[^\s]+)|(https?://[^\s]+))', 'URL', text)
@@ -203,8 +176,8 @@ def replace_URL(text):
 def replace_mention(text):
    '''
    It replaces mentions with "_MENTION_"
-   :param text:
-   :return:
+   :param text: text
+   :return: text with mentions replaced with "_MENTION_"
    '''
 
    return re.sub("@[A-Za-z0-9_]+", "_MENTION_", text)
@@ -213,8 +186,8 @@ def replace_mention(text):
 def find_hashtag(text):
     '''
     It returns hashtags in a tweet
-    :param text:
-    :return:
+    :param text: text
+    :return: text splitted where there are hashtags
     '''
 
     return set([el for el in text.split() if el.startswith("#")])
@@ -247,9 +220,9 @@ def preprocess_tweet_text(text, lang): # it puts everything to lower case -> we 
 def clean_tweet_text(text, list_flags, tweet_lang):
     '''
     It computes cleaning on tweet text (split hashtags, transform flags emoji, replace URLs, replace mentions)
-    :param text:
-    :param list_flags:
-    :return:
+    :param text: text
+    :param list_flags: list of flags
+    :return: cleaned text
     '''
 
     dict_hashtags = find_hashtag(text)
@@ -266,6 +239,13 @@ def clean_tweet_text(text, list_flags, tweet_lang):
 
 
 
+
+
+
+
+
+# Not used
+
 def dataframe_chunk(df, chunk_size):
     '''
     Function to divide dataset into chunks
@@ -281,8 +261,6 @@ def dataframe_chunk(df, chunk_size):
         yield df[i*chunk_size:(i + 1) * chunk_size]
 
 
-
-# not used
 def split_hashtag(text):
     '''
     It removes '#' and splits hashtags words
