@@ -22,9 +22,6 @@ from preprocessing import cleaning_ner_loc
 
 
 class NERLocation():
-    '''
-
-    '''
 
     def __init__(self, pretokenized = False,
                         client = CoreNLPClient(
