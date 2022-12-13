@@ -18,7 +18,9 @@ import json
 
 API_KEY = "qnB2yT0gIDuzimWxrw3lpir14"
 API_KEY_SECRET = "EpiWl4qmpADUEp2TPveKIXQYR5ncWuZqApJYNsW27GkVq1JrAm"
+# riccardo
 #BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAMBRXgEAAAAAAXxbjPu66HeCzfFM2prtBiEPR6w%3DgOqKLwXybos8wZ2VeYvGVP31mrwWN0DUkbrTt6v51rQEDg6Rmzz"
+# mio
 BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAHGhbQEAAAAAnY1dM1zIBEQucG%2F2Aij%2Bx8ksoR0%3DVAdbIz5Hk43FAdwvsCfNJX9QyhEcQKuDmpjftVSEvV0IsZjMWF"
 ACCESSEN_TOKEN = "1509526212959354889-FUZhKPYqGhHdVOmMRddvoWbW8vCj88"
 TOKEN_SECRET = "wKT3pakdFNM1XuSDhjtZVDYzcAWjd7gin9vN5DfOw7MI0"
@@ -102,20 +104,28 @@ class Twitter_query():
 
 
 
-def main():
+def main(country_code, output_file, info_file):
+    '''
+    Given the country code, it makes the query to randomly retrieve tweets in certain time range, so it saves them and
+    the number of time slots needed to download them
+    :param country_code: country code (ISO 2, capital letters)
+    :param output_file: output file (str)
+    :param info_file: information file (str)
+    :return:
+    '''
 
     tweets_collector = Twitter_query()
 
     # query
-    query = 'place_country:IT'
+    query = 'place_country:' + country_code
     # max number of tweets to retrieve
     max_results = 30000
     # slots minutes
     slots_minutes = 2
     # output file
-    output_file = 'IT1'
+    output_file = output_file
     # info file
-    info_file = 'IT1_info'
+    info_file = info_file
 
     list_random_2019 = tweets_collector.create_slots(datetime.datetime(2019, 1, 1, 0, 0, 0), datetime.datetime(2019, 12, 31, 23, 59, 59), slots_minutes)
     list_random_2020 = tweets_collector.create_slots(datetime.datetime(2020, 1, 1, 0, 0, 0), datetime.datetime(2020, 12, 31, 23, 59, 59), slots_minutes)
@@ -130,4 +140,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main('PT', 'PT1', 'PT1_info')
