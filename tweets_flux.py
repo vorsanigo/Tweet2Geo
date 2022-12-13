@@ -53,7 +53,7 @@ def find_locations(locations_file, id_col, loc_col, output_file):
     new = pd.DataFrame(columns=[])
 
     for i in range(len(df)):
-        print('numero', i)
+        print(i)
         x = nom.find_loc_nominatim(df.at[i, loc_col], df.at[i, loc_col], df.at[i, id_col], nom.address_details, nom.format, nom.maxRows, nom.lang)
         new = new.append(x, ignore_index=True)
 
