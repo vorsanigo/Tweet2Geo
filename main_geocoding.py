@@ -22,7 +22,7 @@ parser.add_argument('-loc_field',
                     help='Location field')
 parser.add_argument('-user_field',
                     type=str,
-                    default='user',
+                    default='author_id',
                     help='user field')
 parser.add_argument('-lang_field',
                     type=str,
@@ -38,7 +38,7 @@ parser.add_argument('-org',
                     help='True for org - False for not org')
 parser.add_argument('-threshold',
                     type=float,
-                    default=0.1,
+                    default=0,
                     help='Threshold on Nominatim results')
 parser.add_argument('-output',
                     type=str,
@@ -68,9 +68,9 @@ lang_stanza_file = os.path.join(os.getcwd(), stanza_file)
 # only nominatim -> we use function that writes on csv step by step
 if args.operation_type == 'nominatim':
 
-    df = pd.read_csv(args.data, sep='\t')
+    df = pd.read_csv(args.data)
 
-    geocoder.find_tot_loc_nominatim_pipeline_tsv(df, args.loc_field, args.user_field, file_flags, file_words,
+    geocoder.find_tot_loc_nominatim_pipeline_csv(df, args.loc_field, args.user_field, file_flags, file_words,
                                                  args.italy_world, args.output)
 
 
@@ -78,13 +78,13 @@ if args.operation_type == 'nominatim':
 # nominatim + ner + nominatim -> we use function that writes on csv step by step
 elif args.operation_type == 'nominatim_ner':
 
-    df = pd.read_csv(args.data, sep='\t')
+    df = pd.read_csv(args.data)
 
     with open(lang_corenlp_file) as corenlp:
         lang_corenlp = json.load(corenlp)
     with open(lang_stanza_file) as stanza:
         lang_stanza = json.load(stanza)
 
-    geocoder.find_tot_loc_nominatim_ner_pipeline_tsv(df, args.loc_field, args.user_field, args.lang_field, file_flags,
+    geocoder.find_tot_loc_nominatim_ner_pipeline_csv(df, args.loc_field, args.user_field, args.lang_field, file_flags,
                                                      file_words, args.threshold, lang_corenlp, lang_stanza, args.org,
                                                      args.italy_world, args.output)
