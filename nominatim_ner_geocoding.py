@@ -638,7 +638,7 @@ class NominatimLocGeocoder():
         return tot_results, output_df
 
 
-    def find_tot_loc_nominatim_ner_pipeline_tsv(self, data, starting_location_field, user_field, lang_field, file_flags,
+    def find_tot_loc_nominatim_ner_pipeline_csv(self, data, starting_location_field, user_field, lang_field, file_flags,
                                             file_words, threshold, lang_corenlp, lang_stanza, org, italy, output_file):
         '''
         It applies 'nominatim_ner_pipeline' on a dataset of twitter locations, it returns all the found locations in a
@@ -770,7 +770,7 @@ class NominatimLocGeocoder():
         return tot_results, output_df
 
 
-    def find_tot_loc_nominatim_pipeline_tsv(self, data, starting_location_field, user_field, file_flags,
+    def find_tot_loc_nominatim_pipeline_csv(self, data, starting_location_field, user_field, file_flags,
                                         file_words, italy, output_file):
         '''
         It applies 'nominatim_pipeline' on a dataset of twitter locations, it returns all the found locations in a
@@ -806,7 +806,9 @@ class NominatimLocGeocoder():
             writer.writeheader()
 
             for i in range(len(data)):
+                print(starting_location_field)
                 starting_loc = data.at[i, starting_location_field]
+
                 user = data.at[i, user_field]
                 loc_res = self.nominatim_pipeline(starting_loc, user, flags, weird_words, italy)
 
