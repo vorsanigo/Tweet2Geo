@@ -1,0 +1,11 @@
+,AR,BO,BR,CL,CO,EC,PY,PE,UY,VE
+AR,menouno,1,2,1,1,1,1,1,1,1
+BO,1,menouno,2,1,1,1,1,1,1,1
+BR,2,2,menouno,2,2,2,2,2,2,2
+CL,1,1,2,menouno,1,1,1,1,1,1
+CO,1,1,2,1,menouno,1,1,1,1,1
+EC,1,1,2,1,1,menouno,1,1,1,1
+PY,1,1,2,1,1,1,menouno,1,1,1
+PE,1,1,2,1,1,1,1,menouno,1,1
+UY,1,1,2,1,1,1,1,1,menouno,1
+VE,1,1,2,1,1,1,1,1,1,menouno

@@ -1,0 +1,2 @@
+,R squared,Intercept,Coefficient 1 (Source gdp),Coefficient 2 (Target gdp),Coefficient 3 (dist),Coefficient 4 (Migration),Coefficient 5.1 (Language_2),Coefficient 4.2 (Language_1),Normalization factor,# points per fit
+0,0.7547834364179127,-13.59317379972496,0.7489887841021359,0.5948323252350314,-0.326406612422147,0.10023440771631731,0.10790835646309668,-0.10790835646309668,13.59317379972496,80.0
