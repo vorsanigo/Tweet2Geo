@@ -1,3 +1,8 @@
+# Configuration files
+Data collection/config_twitter_API.py
+
+Data analysis/Topics/config_topics.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
