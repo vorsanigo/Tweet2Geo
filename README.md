@@ -8,5 +8,11 @@ It builds the networks of international interest and it adopts gravity models to
 ### Folders
 
 - `Data` contains the aggregated data divided into the three regions (subfolders `Europe`, `South America`, and `US`): number of mentions per day between countries, data for the gravity model, socio-economic data
+- `Data collection` contains scripts for the data collection:
+  - *twitter_api.py*          
 - `Data analysis` contains scripts divided into five subfolders:
-  - GDP VS tweets: 
+  - `GDP VS tweets`: file *f_001_figure_GDP_tweets.ipynb* to produce the image gdp per capita VS tweets per day per country
+  - `Network measures`: files *EU_network_measures.ipynb*, *SA_network_measures.ipynb*, *US_network_measures no wa.ipynb* to compute network measures and generate networks images
+  - `Choroplets`: files *f_003_tweets_flux_EU.ipynb*, *f_003_tweets_flux_SA.ipynb*, *f_003_tweets_flux_US_no_WA.ipynb* to generate choroplet maps
+  - `Gravity model`: files *f_002_gravity model_EU_img.ipynb*, *f_002_gravity model_SA_img.ipynb*, *f_002_gravity model_US_img.ipynb* to run gravity models and get corresponding plot
+  - `Topics`: file *embeddings.py* to generate embeddings, file *topics.py* to extract topics, file *topics_check.ipynb* to compute extra analysis on topics results
