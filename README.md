@@ -9,7 +9,13 @@ It builds the networks of international interest and it adopts gravity models to
 
 - `Data` contains the aggregated data divided into the three regions (subfolders `Europe`, `South America`, and `US`): number of mentions per day between countries, data for the gravity model, socio-economic data
 - `Data collection` contains scripts for the data collection:
-  - *twitter_api.py*          
+  - *twitter_api.py* to download data from Twitter through its API
+  - *tweets_dataset.py* to save data into organizaed datasets
+  - *tweets_flux.py* to compute and save number of mentions per day between countries
+  - *preprocessing.py* to do preprocessing of tweets text
+  - *nominatim_ner_geocoding.py* to compute geocoding using nominatim
+  - *main_geocoding.py* main to run geocoding
+  - *new_ner.py* to extract locations from text using NER from Stanza
 - `Data analysis` contains scripts divided into five subfolders:
   - `GDP VS tweets`: file *f_001_figure_GDP_tweets.ipynb* to produce the image gdp per capita VS tweets per day per country
   - `Network measures`: files *EU_network_measures.ipynb*, *SA_network_measures.ipynb*, *US_network_measures no wa.ipynb* to compute network measures and generate networks images
