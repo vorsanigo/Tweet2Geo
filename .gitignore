@@ -1,13 +1,16 @@
 # Configuration files
-**/config.py
+./Data/config.py
 
-**/Topics/config_topics.py
+./Data analysis/Topics/config_topics.py
 
+# cover letter
 Cover letter.odt
 Cover letter.pdf
 
+# git overleaf
 git overleaf
 
+# latex folder
 tweet2geo_latex
 
 2023_tweet2geo_OK
