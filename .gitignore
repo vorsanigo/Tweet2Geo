@@ -1,7 +1,7 @@
 # Configuration files
-/Data collection/config.py
+**/config.py
 
-/Data analysis/Topics/config_topics.py
+**/Topics/config_topics.py
 
 Cover letter.odt
 Cover letter.pdf
