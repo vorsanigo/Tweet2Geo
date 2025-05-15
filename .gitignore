@@ -1,5 +1,5 @@
 # Configuration files
-Data collection/config_twitter_API.py
+Data collection/config.py
 
 Data analysis/Topics/config_topics.py
 
