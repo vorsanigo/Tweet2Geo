@@ -1,7 +1,7 @@
 # Configuration files
-./Data/config.py
+Tweet2Geo/Data/config.py
 
-./Data analysis/Topics/config_topics.py
+Tweet2Geo/Data analysis/Topics/config_topics.py
 
 # cover letter
 Cover letter.odt
