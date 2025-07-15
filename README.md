@@ -35,8 +35,8 @@ It builds the networks of international interest and it adopts gravity models to
 ## Execution
 
 ### Data collection and processing
-#### Twitter data collection
-1) Run script `twitter_api.py` to download Twitter data
-2) Run script `tweets_dataset.py` to save data into organized datasets
-
-4) Run script `tweets_flux.py` to compute and save the number of mentions per day between countries
+1) Twitter data collection
+   - Run script `twitter_api.py` to download Twitter data
+   - Run script `tweets_dataset.py` to save data into organized datasets
+2) Count mentions between countries
+   - Run script `tweets_flux.py` to compute and save the number of mentions per day between countries
