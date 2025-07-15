@@ -29,5 +29,8 @@ It builds the networks of international interest and it adopts gravity models to
 ### Requirements
 
 1) Clone the repository:
-   `https://github.com/vorsanigo/Tweet2Geo.git`
-2)
+   `git clone https://github.com/vorsanigo/Tweet2Geo.git`
+2) In the cloned folder, create a virtual environment via `pip` using the `requirements.txt` file:
+   virtualenv venv -r requirements.txt
+3) kernel -> TODO
+   
