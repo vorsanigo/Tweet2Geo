@@ -9,7 +9,7 @@ import requests
 import logging
 from tqdm import tqdm
 import time
-from ner import NERLocation
+#from ner import NERLocation
 
 
 
