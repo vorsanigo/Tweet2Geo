@@ -1,5 +1,5 @@
 '''
-Main to perform geocoding, choosing between "only Nominatim" and "Nominatim + NER"
+Main to perform geocoding
 '''
 
 import argparse
