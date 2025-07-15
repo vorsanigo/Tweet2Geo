@@ -22,3 +22,8 @@ It builds the networks of international interest and it adopts gravity models to
   - `Choroplets`: files *f_003_tweets_flux_EU.ipynb*, *f_003_tweets_flux_SA.ipynb*, *f_003_tweets_flux_US_no_WA.ipynb* to generate choroplet maps
   - `Gravity model`: files *f_002_gravity model_EU_img.ipynb*, *f_002_gravity model_SA_img.ipynb*, *f_002_gravity model_US_img.ipynb* to run gravity models and get corresponding plot
   - `Topics`: file *embeddings.py* to generate embeddings, file *topics.py* to extract topics, file *topics_check.ipynb* to compute extra analysis on topics results
+ 
+
+## Execution
+
+
