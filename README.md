@@ -26,4 +26,8 @@ It builds the networks of international interest and it adopts gravity models to
 
 ## Execution
 
+### Requirements
 
+1) Clone the repository:
+   `https://github.com/vorsanigo/Tweet2Geo.git`
+2)
