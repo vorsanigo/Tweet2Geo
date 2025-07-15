@@ -17,7 +17,7 @@ It builds the networks of international interest and it adopts gravity models to
   - *main_geocoding.py* main to run geocoding
   - *new_ner.py* to extract locations from text using NER from Stanza
 - `Data analysis` contains scripts divided into five subfolders:
-  - `GDP VS tweets`: file *f_001_figure_GDP_tweets.ipynb* to produce the image gdp per capita VS tweets per day per country
+  - `GDP VS tweets`: file *f_001_figure_GDP_tweets.ipynb* to produce the image GDP per capita VS tweets per day per country
   - `Network measures`: files *EU_network_measures.ipynb*, *SA_network_measures.ipynb*, *US_network_measures no wa.ipynb* to compute network measures and generate networks images
   - `Choroplets`: files *f_003_tweets_flux_EU.ipynb*, *f_003_tweets_flux_SA.ipynb*, *f_003_tweets_flux_US_no_WA.ipynb* to generate choroplet maps
   - `Gravity model`: files *f_002_gravity model_EU_img.ipynb*, *f_002_gravity model_SA_img.ipynb*, *f_002_gravity model_US_img.ipynb* to run gravity models and get corresponding plot
@@ -35,8 +35,15 @@ It builds the networks of international interest and it adopts gravity models to
 ## Execution
 
 ### Data collection and processing
-1) Twitter data collection
+1) **Twitter data collection**
    - Run script `twitter_api.py` to download Twitter data
    - Run script `tweets_dataset.py` to save data into organized datasets
-2) Count mentions between countries
+2) **Count mentions between countries**
    - Run script `tweets_flux.py` to compute and save the number of mentions per day between countries
+3) **Location extraction**
+   - Run script `preprocessing.py` to preprocess tweets text
+  
+#### Data analysis
+1) Notebook `f_001_figure_GDP_tweets.ipynb` to produce the image GDP per capita VS tweets per day per country
+2) Inside folder `Network measures`: notebooks `EU_network_measures.ipynb`, `SA_network_measures.ipynb`, `US_network_measures no wa.ipynb` to compute network measures and generate networks images respectively for Europe, South America, and the United States
+3)  
