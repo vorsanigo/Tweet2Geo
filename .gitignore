@@ -10,11 +10,27 @@ Cover letter.pdf
 # git overleaf
 git overleaf
 
-# latex folder
+# latex folder & files
 tweet2geo_latex
-
+tweet2geo_latex_old_2
 2023_tweet2geo_OK
 tweet2geo
+tweet2geo_latex.zip
+
+2023_tweet2geo_supplementary.pdf
+
+latex_tweet2geo
+
+2023_tweet2geo_supplementary BEFORE REVIEWS
+
+2023_tweet2geo VERSION BEFORE REVIEWS
+
+# EPJ reviews
+editors reply.odt
+editors_reply.pdf
+
+# keys API
+keys_api
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
