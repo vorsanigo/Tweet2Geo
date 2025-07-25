@@ -17,7 +17,10 @@ parser.add_argument('-region',
 parser.add_argument('-documents_to_clean',
                     type=str,
                     default='/cleaned_text_loc_no_text_EU 1.csv',
-                    help='path of document to clean')
+                    help='path of document to clean:\
+                        Europe: /cleaned_text_loc_no_text_EU 1.csv\
+                        South America: /cleaned_text_loc_no_text_inside_SA.csv\
+                        United States: /cleaned_text_no_text_loc_inside_US 111.csv')
 parser.add_argument('-hdbscan_param',
                     type=int,
                     default=70,
@@ -33,13 +36,13 @@ args = parser.parse_args()
 region = args.region # EU, SA, US
 
 # dataset
-file = region + '/cleaned_text_no_text_loc_inside_US 111.csv'
+file = region + args.documents_to_clean
 
 #
 #'/cleaned_text_no_text_loc_inside_US 111.csv'
 
 # model name
-model_name = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2" 
+model_name =  args.model 
 
 
 # output
