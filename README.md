@@ -64,7 +64,8 @@ The Twitter API conditions changed so the data collection as performed by us is 
    - Script `preprocessing.py` to preprocess tweets text
    - Script `new_ner.py` to extract locations from text using Stanza
    - Script `main_geocoding.py` to geocode location strings given in input in a dataframe (to assign geographic information to the locations found in the tweets text)
- The final datasets containing the matrices of the mentions per day between countries are the following:
+
+The final datasets containing the matrices of the mentions per day between countries are the following:
 - Inside `Data/Europe/`: file `fluxes_0.5_norm_day_ok.csv`
 - Inside `Data/South America/`: file `fluxes_0.5_norm_day okok.csv`
 - Inside `Data/US/`: file `fluxes_0.5_norm_day no wa.csv`
