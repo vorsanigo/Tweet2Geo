@@ -60,7 +60,7 @@ parser.add_argument('-hdbscan_param',
 parser.add_argument('-model',
                     type=str,
                     default='sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
-                    help='Model to use for embeddings')
+                    help='Model used for embeddings')
 args = parser.parse_args()
 
 
@@ -68,7 +68,7 @@ args = parser.parse_args()
 # NB create df for topics and documents accordingly to type of data
 
 # model embeddings
-model = 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2' # distilbert-multilingual-nli-stsb-quora-ranking
+model = args.model # distilbert-multilingual-nli-stsb-quora-ranking
 
 # region of the world
 region = args.region # EU, SA, US
@@ -77,9 +77,9 @@ region = args.region # EU, SA, US
 emb_dir = region + '/'
 
 # inputs
-file_embeddings_info = emb_dir + 'embeddings_info_no_extra_state_' + region + '.csv'
-file_embeddings = emb_dir + 'embeddings_no_extra_state_' + region + '.npy'
-file_documents = emb_dir + '/completely_cleaned_no_extra_state_' + region + '.csv'
+file_embeddings_info = emb_dir + 'embeddings_info_' + region + '.csv'
+file_embeddings = emb_dir + 'embeddings_' + region + '.npy'
+file_documents = emb_dir + '/completely_cleaned_' + region + '.csv'
 
 # documents column
 documents_column = 'cleaned_text'
@@ -91,9 +91,9 @@ umap_param = args.umap_param # 15
 hdbscan_param = args.hdbscan_param #30 #70 #150
 
 # outputs
-df_topic_document = emb_dir + 'topic_no_extra_state_' + region + '_' + str(hdbscan_param) + '.csv'
-df_topic_info = emb_dir + 'doc_info_no_extra_state_' + region + '_' + str(hdbscan_param) + '.csv'
-topic_model_path = emb_dir + 'topic_model_no_extra_state_' + str(hdbscan_param) + '_' + region
+df_topic_document = emb_dir + 'topic_' + region + '_' + str(hdbscan_param) + '.csv'
+df_topic_info = emb_dir + 'doc_info_' + region + '_' + str(hdbscan_param) + '.csv'
+topic_model_path = emb_dir + 'topic_model_' + str(hdbscan_param) + '_' + region
 
 
 
