@@ -3,6 +3,12 @@ config.py
 
 config_topics.py
 
+# directory tree structure
+tree_folders_files.py
+tree_folders.py
+FOLDER_STRUCTURE_FILES.md
+FOLDER_STRUCTURE.md
+
 # cover letter 
 Cover letter.odt
 Cover letter.pdf
