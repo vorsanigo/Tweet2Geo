@@ -26,40 +26,29 @@ It builds the networks of international interest and it adopts gravity models to
 ### Nice structure
 
 ```
-├── Data                                          <- Folder containing the aggregated data: number of mentions per day between countries, data for the gravity model, socio-economic data
-│   ├── Europe                                    
-│   │   ├── 0 fluxes 0.5 
-│   │   ├── 0 gravity model
+├── Data                                        <- Folder containing the aggregated data for each region: mentions per day between countries, gravity model data, socio-economic data
+│   ├── Europe                                   
 │   ├── South America
-│   │   ├── 0 fluxes 0.5
-│   │   ├── 0 gravity model
 │   ├── US
-│   │   ├── 0 gravity model
-├── Data analysis
-│   ├── Choroplets
-│   │   ├── EU
-│   │   ├── SA
-│   │   ├── US
-│   ├── GDP VS tweets
+├── Data analysis                               <- Folder containing scripts for the data analysis
+│   ├── Choroplets                              <- Folder containing notebooks to generate choroplet maps
+│   │   ├── f_003_tweets_flux_EU.ipynb
+│   │   ├── f_003_tweets_flux_SA.ipynb
+│   │   ├── f_003_tweets_flux_US_no_WA.ipynb
+│   ├── GDP VS tweets                           <- Folder containing notebook to produce the image GDP per capita VS tweets per day per country
 │   │   ├── f_001_figure_GDP_tweets.ipynb                
-│   ├── Gravity model
-│   │   ├── EU
-│   │   ├── SA
-│   │   ├── US
+│   ├── Gravity model                           <- Folder containing notebooks to run gravity models and get corresponding plots
 │   │   ├── f_002_gravity model_EU_img.ipynb    
 │   │   ├── f_002_gravity model_SA_img.ipynb
 │   │   └── f_002_gravity model_US_img.ipynb
-│   ├── Network measures
+│   ├── Network measures                        <- Folder containing notebooks to compute network measures and generate network images
 │   │   ├── EU_network_measures.ipynb
 │   │   ├── SA_network_measures.ipynb
 │   │   └── US_network_measures no wa.ipynb
-│   └── Topics
-│       ├── EU
-│       ├── SA
-│       ├── US
-│       ├── embeddings.py
-│       ├── topics.py
-├── Data collection
+│   └── Topics                                  <- Folder containing scripts for embeddings generation and topics modeling
+│       ├── embeddings.py                       <- embeddings generation
+│       ├── topics.py                           <- topic modeling
+├── Data collection                             <- Folder containing scripts for the data collection and processing
 │   ├── main_geocoding.py
 │   ├── new_ner.py
 │   ├── nominatim_ner_geocoding.py
