@@ -58,13 +58,13 @@ The Twitter API conditions changed so the data collection as performed by us is 
 1) **Twitter data collection**
    - Script `twitter_api.py` to download Twitter data
    - Script `tweets_dataset.py` to save data into organized datasets
-2) **Count mentions between countries**
-   - Script `tweets_flux.py` to compute and save the number of mentions per day between countries
-3) **Location extraction**
+2) **Location extraction and geocoding**
    - Script `preprocessing.py` to preprocess tweets text
    - Script `new_ner.py` to extract locations from text using Stanza
    - Script `main_geocoding.py` to geocode location strings given in input in a dataframe (to assign geographic information to the locations found in the tweets text)
-
+3) **Count mentions between countries**
+   - Script `tweets_flux.py` to compute and save the number of mentions per day between countries
+     
 The final datasets containing the matrices of the mentions per day between countries are the following:
 - Inside `Data/Europe/`: file `fluxes_0.5_norm_day_ok.csv`
 - Inside `Data/South America/`: file `fluxes_0.5_norm_day okok.csv`
