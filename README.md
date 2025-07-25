@@ -23,6 +23,55 @@ It builds the networks of international interest and it adopts gravity models to
   - `Gravity model`: files *f_002_gravity model_EU_img.ipynb*, *f_002_gravity model_SA_img.ipynb*, *f_002_gravity model_US_img.ipynb* to run gravity models and get corresponding plot
   - `Topics`: file *embeddings.py* to generate embeddings, file *topics.py* to extract topics, file *topics_check.ipynb* to compute extra analysis on topics results
  
+### Nice structure
+
+```
+├── Data
+│   ├── Europe
+│   │   ├── 0 fluxes 0.5 
+│   │   ├── 0 gravity model
+│   ├── South America
+│   │   ├── 0 fluxes 0.5
+│   │   ├── 0 gravity model
+│   ├── US
+│   │   ├── 0 gravity model
+├── Data analysis
+│   ├── Choroplets
+│   │   ├── EU
+│   │   ├── SA
+│   │   ├── US
+│   ├── GDP VS tweets
+│   │   ├── f_001_figure_GDP_tweets.ipynb
+│   ├── Gravity model
+│   │   ├── EU
+│   │   ├── SA
+│   │   ├── US
+│   │   ├── f_002_gravity model_EU_img.ipynb
+│   │   ├── f_002_gravity model_SA_img.ipynb
+│   │   └── f_002_gravity model_US_img.ipynb
+│   ├── Network measures
+│   │   ├── EU_network_measures.ipynb
+│   │   ├── SA_network_measures.ipynb
+│   │   └── US_network_measures no wa.ipynb
+│   └── Topics
+│       ├── EU
+│       ├── SA
+│       ├── US
+│       ├── embeddings.py
+│       ├── topics.py
+├── Data collection
+│   ├── main_geocoding.py
+│   ├── new_ner.py
+│   ├── nominatim_ner_geocoding.py
+│   ├── preprocessing.py
+│   ├── tweets_dataset.py
+│   ├── tweets_flux.py
+│   └── twitter_api.py
+├── README.md
+└── requirements.txt
+```
+
+ 
 
 ## Installation
 
