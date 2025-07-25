@@ -74,12 +74,14 @@ It builds the networks of international interest and it adopts gravity models to
 
 ### Data collection and processing
 1) **Twitter data collection**
-   - Run script `twitter_api.py` to download Twitter data
-   - Run script `tweets_dataset.py` to save data into organized datasets
+   - Script `twitter_api.py` to download Twitter data
+   - Script `tweets_dataset.py` to save data into organized datasets
 2) **Count mentions between countries**
-   - Run script `tweets_flux.py` to compute and save the number of mentions per day between countries
+   - Script `tweets_flux.py` to compute and save the number of mentions per day between countries
 3) **Location extraction**
-   - Run script `preprocessing.py` to preprocess tweets text
+   - Script `preprocessing.py` to preprocess tweets text
+   - Script `new_ner.py`
+   - Script `main_geocoding.py' to geocode location strings (to assign geographic information to the locations found in the tweets text)
   
 ### Data analysis
 1) Inside folder `GDP VS tweets`: notebook `f_001_figure_GDP_tweets.ipynb` to produce the image GDP per capita VS tweets per day per country
