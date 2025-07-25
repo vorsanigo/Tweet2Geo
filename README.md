@@ -49,6 +49,6 @@ It builds the networks of international interest and it adopts gravity models to
 3) Inside folder `Choroplets`: notebooks `f_003_tweets_flux_EU.ipynb`, `f_002_gravity model_SA_img.ipynb`, `f_003_tweets_flux_US_no_WA.ipynb` to generate choroplet maps respectively for Europe, South America, and the United States
 4) Inside folder `Gravity model`: notebooks `f_002_gravity model_EU_img.ipynb`, `f_002_gravity model_SA_img.ipynb`, `f_002_gravity model_US_img.ipynb` to run gravity models and get corresponding plots respectively for Europe, South America, and the United States
 5)  Inside folder `Topics`:
-    5.1) run script `embeddings.py` to extract the embeddings from the tweets text (you can change the arguments to pass by command line: region of the world (EU, SA, US), dataset for embeddings extraction, model for embeddings extraction)
-    5.2) run script `topics.py` to extract the topics from the tweets (you can change the arguments to pass by command line: region of the world (EU, SA, US), UMAP and HDBSCAN parameters, model used for embeddings extraction)
+     - run script `embeddings.py` to extract the embeddings from the tweets text (you can change the arguments to pass by command line: region of the world (EU, SA, US), dataset for embeddings extraction, model for embeddings extraction)
+     -  run script `topics.py` to extract the topics from the tweets (you can change the arguments to pass by command line: region of the world (EU, SA, US), UMAP and HDBSCAN parameters, model used for embeddings extraction)
     
