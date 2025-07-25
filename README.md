@@ -26,8 +26,8 @@ It builds the networks of international interest and it adopts gravity models to
 ### Nice structure
 
 ```
-├── Data
-│   ├── Europe
+├── Data                                          <- Folder containing the aggregated data: number of mentions per day between countries, data for the gravity model, socio-economic data
+│   ├── Europe                                    
 │   │   ├── 0 fluxes 0.5 
 │   │   ├── 0 gravity model
 │   ├── South America
@@ -41,12 +41,12 @@ It builds the networks of international interest and it adopts gravity models to
 │   │   ├── SA
 │   │   ├── US
 │   ├── GDP VS tweets
-│   │   ├── f_001_figure_GDP_tweets.ipynb
+│   │   ├── f_001_figure_GDP_tweets.ipynb                
 │   ├── Gravity model
 │   │   ├── EU
 │   │   ├── SA
 │   │   ├── US
-│   │   ├── f_002_gravity model_EU_img.ipynb
+│   │   ├── f_002_gravity model_EU_img.ipynb    
 │   │   ├── f_002_gravity model_SA_img.ipynb
 │   │   └── f_002_gravity model_US_img.ipynb
 │   ├── Network measures
