@@ -21,10 +21,6 @@ parser.add_argument('-documents_to_clean',
                         Europe: /cleaned_text_loc_no_text_EU 1.csv\
                         South America: /cleaned_text_loc_no_text_inside_SA.csv\
                         United States: /cleaned_text_no_text_loc_inside_US 111.csv')
-parser.add_argument('-hdbscan_param',
-                    type=int,
-                    default=70,
-                    help='HDBSCAN parameter')
 parser.add_argument('-model',
                     type=str,
                     default='sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
@@ -45,10 +41,10 @@ model_name =  args.model
 
 # output
 dir_output = region + '/'
-embeddings_df = dir_output + 'embeddings_info_no_extra_state_' + region + '.csv'
-embeddings_np = dir_output + 'embeddings_no_extra_state_' + region + '.npy'
-reduced_embeddings_np = dir_output + 'reduced_embeddings_no_extra_state_' + region + '.npy'
-cleaned_df = dir_output + 'completely_cleaned_no_extra_state_' + region + '.csv'
+embeddings_df = dir_output + 'embeddings_info_' + region + '.csv'
+embeddings_np = dir_output + 'embeddings_' + region + '.npy'
+reduced_embeddings_np = dir_output + 'reduced_embeddings_' + region + '.npy'
+cleaned_df = dir_output + 'completely_cleaned_' + region + '.csv'
 
 # columns to use
 cleaned_text_col = 'cleaned_text'
