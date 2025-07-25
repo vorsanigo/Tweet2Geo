@@ -80,8 +80,8 @@ It builds the networks of international interest and it adopts gravity models to
    - Script `tweets_flux.py` to compute and save the number of mentions per day between countries
 3) **Location extraction**
    - Script `preprocessing.py` to preprocess tweets text
-   - Script `new_ner.py`
-   - Script `main_geocoding.py' to geocode location strings (to assign geographic information to the locations found in the tweets text)
+   - Script `new_ner.py` to extract locations from text using Stanza
+   - Script `main_geocoding.py` to geocode location strings given in input in a dataframe (to assign geographic information to the locations found in the tweets text)
   
 ### Data analysis
 1) Inside folder `GDP VS tweets`: notebook `f_001_figure_GDP_tweets.ipynb` to produce the image GDP per capita VS tweets per day per country
