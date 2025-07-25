@@ -53,6 +53,8 @@ It builds the networks of international interest and it adopts gravity models to
 ## Execution
 
 ### Data collection and processing
+
+The Twitter API conditions changed so the data collection as performed by us is no longer available. However, we report here the strategy we followed.
 1) **Twitter data collection**
    - Script `twitter_api.py` to download Twitter data
    - Script `tweets_dataset.py` to save data into organized datasets
@@ -62,6 +64,10 @@ It builds the networks of international interest and it adopts gravity models to
    - Script `preprocessing.py` to preprocess tweets text
    - Script `new_ner.py` to extract locations from text using Stanza
    - Script `main_geocoding.py` to geocode location strings given in input in a dataframe (to assign geographic information to the locations found in the tweets text)
+ The final datasets containing the matrices of the mentions per day between countries are the following:
+- Inside `Data/Europe/`: file `fluxes_0.5_norm_day_ok.csv`
+- Inside `Data/South America/`: file `fluxes_0.5_norm_day okok.csv`
+- Inside `Data/US/`: file `fluxes_0.5_norm_day no wa.csv`
   
 ### Data analysis
 1) Inside folder `GDP VS tweets`: notebook `f_001_figure_GDP_tweets.ipynb` to produce the image GDP per capita VS tweets per day per country
