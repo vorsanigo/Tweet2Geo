@@ -43,9 +43,12 @@ It builds the networks of international interest and it adopts gravity models to
 3) **Location extraction**
    - Run script `preprocessing.py` to preprocess tweets text
   
-#### Data analysis
+### Data analysis
 1) Inside folder `GDP VS tweets`: notebook `f_001_figure_GDP_tweets.ipynb` to produce the image GDP per capita VS tweets per day per country
 2) Inside folder `Network measures`: notebooks `EU_network_measures.ipynb`, `SA_network_measures.ipynb`, `US_network_measures no wa.ipynb` to compute network measures and generate networks images respectively for Europe, South America, and the United States
-3)  Inside folder `Choroplets`: notebooks `f_003_tweets_flux_EU.ipynb`, `f_002_gravity model_SA_img.ipynb`, `f_003_tweets_flux_US_no_WA.ipynb` to generate choroplet maps respectively for Europe, South America, and the United States
-4)  Inside folder `Gravity model`: notebooks `f_002_gravity model_EU_img.ipynb`, `f_002_gravity model_SA_img.ipynb`, `f_002_gravity model_US_img.ipynb` to run gravity models and get corresponding plots respectively for Europe, South America, and the United States
-5)  
+3) Inside folder `Choroplets`: notebooks `f_003_tweets_flux_EU.ipynb`, `f_002_gravity model_SA_img.ipynb`, `f_003_tweets_flux_US_no_WA.ipynb` to generate choroplet maps respectively for Europe, South America, and the United States
+4) Inside folder `Gravity model`: notebooks `f_002_gravity model_EU_img.ipynb`, `f_002_gravity model_SA_img.ipynb`, `f_002_gravity model_US_img.ipynb` to run gravity models and get corresponding plots respectively for Europe, South America, and the United States
+5)  Inside folder `Topics`:
+    5.1) run script `embeddings.py` to extract the embeddings from the tweets text (you can change the arguments to pass by command line: region of the world (EU, SA, US), dataset for embeddings extraction, model for embeddings extraction)
+    5.2) run script `topics.py` to extract the topics from the tweets (you can change the arguments to pass by command line: region of the world (EU, SA, US), UMAP and HDBSCAN parameters, model used for embeddings extraction)
+    
