@@ -25,3 +25,5 @@ seaborn
 statsmodels
 adjustText
 shap
+ipython
+matplotlib-inline
