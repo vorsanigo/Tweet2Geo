@@ -35,7 +35,7 @@ It builds the networks of international interest and it adopts gravity models to
 │   │   ├── f_003_tweets_flux_EU.ipynb
 │   │   ├── f_003_tweets_flux_SA.ipynb
 │   │   ├── f_003_tweets_flux_US_no_WA.ipynb
-│   ├── GDP VS tweets                           <- Notebook to produce the image GDP per capita VS tweets per day per country
+│   ├── GDP VS tweets                           <- Notebook to generate GDP per capita VS tweets per day per country
 │   │   ├── f_001_figure_GDP_tweets.ipynb                
 │   ├── Gravity model                           <- Notebooks to run gravity models and get corresponding plots
 │   │   ├── f_002_gravity model_EU_img.ipynb    
