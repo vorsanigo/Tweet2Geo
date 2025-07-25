@@ -38,8 +38,6 @@ region = args.region # EU, SA, US
 # dataset
 file = region + args.documents_to_clean
 
-#
-#'/cleaned_text_no_text_loc_inside_US 111.csv'
 
 # model name
 model_name =  args.model 
@@ -67,19 +65,22 @@ df = pd.read_csv(file)
 print('len df tot', len(df))
 
 
-# EU specifics
-'''# remove tweets in vatican city
-#df = df[df['place_country'] != 'VA'].reset_index()
-# remove rows with tweets text = nan
-df = df[~df[cleaned_text_col].isna()]
-# remove vatican word
-df['cleaned_text'] = df['cleaned_text'].apply(lambda x: x.replace('vatican', ''))
-df = df.reset_index()'''
+# EU specifics to remove tweets in vatican city and vatican work from the text
+# NB: uncomment it only if needed
+'''if args.region == 'EU':
+    # remove tweets in vatican city
+    df = df[df['place_country'] != 'VA'].reset_index()
+    # remove rows with tweets text = nan
+    df = df[~df[cleaned_text_col].isna()]
+    # remove vatican word
+    df['cleaned_text'] = df['cleaned_text'].apply(lambda x: x.replace('vatican', ''))
+    df = df.reset_index()'''
 
 # Us specifics
-# remove tweets geotagged/mentioning alaska, hawaii, washington, guam
-df = df[~df['state_y'].isin(['AK', 'HI', 'WA'])]
-df = df[~df['state_x'].isin(['Alaska', 'Hawaii', 'Washington', 'Guam', 'Puerto Rico'])]
+# remove tweets geotagged/mentioning alaska, hawaii, washington, guam, puerto rico
+if args.region == 'US':
+    df = df[~df['state_y'].isin(['AK', 'HI', 'WA'])]
+    df = df[~df['state_x'].isin(['Alaska', 'Hawaii', 'Washington', 'Guam', 'Puerto Rico'])]
 
 
 # using tweets text
