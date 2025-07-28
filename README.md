@@ -6,9 +6,9 @@ It builds the networks of international interest and it adopts gravity models to
 ## Structure
 
 ```
-├── Data                                        <- Aggregated data for each region: mentions per day between countries, 
-│   ├── Europe                                     gravity model data, socio-economic data
-│   ├── South America
+├── Data                                        <- Aggregated data for each region: mentions                                              
+│   ├── Europe                                     per day between countries, gravity model data, 
+│   ├── South America                              socio-economic data
 │   ├── US
 ├── Data analysis                               <- Scripts for the data analysis
 │   ├── Choroplets                              <- Notebooks to generate choroplet maps
