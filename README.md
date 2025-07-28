@@ -48,7 +48,7 @@ It builds the networks of international interest and it adopts gravity models to
    `git clone https://github.com/vorsanigo/Tweet2Geo.git`
 2) In the cloned folder, create a virtual environment through the command `virtualenv venv` and activate it through `source venv/bin/activate`
 3) Inside the virtual environment, install the requirements through `pip install -r requirements.txt`
-4) kernel -> TODO
+
 
 ## Execution
 
