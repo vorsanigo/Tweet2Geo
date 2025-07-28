@@ -7,8 +7,8 @@ It builds the networks of international interest and it adopts gravity models to
 
 ```
 ├── Data                                        <- Aggregated data for each region: mentions                                              
-│   ├── Europe                                     per day between countries, gravity model data, 
-│   ├── South America                              socio-economic data
+│   ├── Europe                                     per day between countries, gravity model 
+│   ├── South America                              data, socio-economic data
 │   ├── US
 ├── Data analysis                               <- Scripts for the data analysis
 │   ├── Choroplets                              <- Notebooks to generate choroplet maps
