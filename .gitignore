@@ -2,6 +2,10 @@
 #config.py
 #config_topics.py
 
+# folders
+Data analysis/Network measures/old
+Data analysis/Choroplets/old
+
 # directory tree structure
 tree_folders_files.py
 tree_folders.py
