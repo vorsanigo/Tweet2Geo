@@ -17,7 +17,7 @@ parser.add_argument('-region',
 parser.add_argument('-documents_to_clean',
                     type=str,
                     default='/cleaned_text_loc_no_text_EU 1.csv',
-                    help='path of document to clean:\
+                    help='path of document to use to extract embeddings:\
                         Europe: /cleaned_text_loc_no_text_EU 1.csv\
                         South America: /cleaned_text_loc_no_text_inside_SA.csv\
                         United States: /cleaned_text_no_text_loc_inside_US 111.csv')
