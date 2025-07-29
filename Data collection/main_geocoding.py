@@ -17,11 +17,11 @@ parser.add_argument('-data',
 parser.add_argument('-loc_field',
                     type=str,
                     default='location',
-                    help='Location field')
+                    help='Location field: it contains the location string to geocode')
 parser.add_argument('-user_field',
                     type=str,
                     default='author_id',
-                    help='user field')
+                    help='User field')
 parser.add_argument('-lang_field',
                     type=str,
                     default='lang',
