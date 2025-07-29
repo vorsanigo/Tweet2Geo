@@ -6,9 +6,9 @@ It builds the networks of international interest and it adopts gravity models to
 ## Structure
 
 ```
-├── Data                                        <- Aggregated data for each region: mentions per day between countries, 
-│   ├── Europe                                     gravity model data, socio-economic data
-│   ├── South America
+├── Data                                        <- Aggregated data for each region: mentions per day between countries,                                             
+│   ├── Europe                                      gravity model data, socio-economic data
+│   ├── South America                              
 │   ├── US
 ├── Data analysis                               <- Scripts for the data analysis
 │   ├── Choroplets                              <- Notebooks to generate choroplet maps
@@ -48,7 +48,7 @@ It builds the networks of international interest and it adopts gravity models to
    `git clone https://github.com/vorsanigo/Tweet2Geo.git`
 2) In the cloned folder, create a virtual environment through the command `virtualenv venv` and activate it through `source venv/bin/activate`
 3) Inside the virtual environment, install the requirements through `pip install -r requirements.txt`
-4) kernel -> TODO
+
 
 ## Execution
 
@@ -76,6 +76,6 @@ The final datasets containing the matrices of the mentions per day between count
 3) Inside folder `Choroplets`: notebooks `f_003_tweets_flux_EU.ipynb`, `f_002_gravity model_SA_img.ipynb`, `f_003_tweets_flux_US_no_WA.ipynb` to generate choroplet maps respectively for Europe, South America, and the United States
 4) Inside folder `Gravity model`: notebooks `f_002_gravity model_EU_img.ipynb`, `f_002_gravity model_SA_img.ipynb`, `f_002_gravity model_US_img.ipynb` to run gravity models and get corresponding plots respectively for Europe, South America, and the United States
 5)  Inside folder `Topics`:
-     - run script `embeddings.py` to extract the embeddings from the tweets text (you can change the arguments to pass by command line: region of the world (EU, SA, US), dataset for embeddings extraction, model for embeddings extraction)
+     - run script `embeddings.py` to extract the embeddings from the tweets text (you can change the arguments to pass by command line: region of the world (EU, SA, US), path of the dataset to use to extract the embeddings, model for embeddings extraction)
      -  run script `topics.py` to extract the topics from the tweets (you can change the arguments to pass by command line: region of the world (EU, SA, US), UMAP and HDBSCAN parameters, model used for embeddings extraction)
     
