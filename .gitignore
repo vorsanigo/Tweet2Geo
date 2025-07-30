@@ -6,6 +6,10 @@
 Data analysis/Network measures/old
 Data analysis/Choroplets/old
 
+#files
+config.py
+config_topics.py
+
 # directory tree structure
 tree_folders_files.py
 tree_folders.py
