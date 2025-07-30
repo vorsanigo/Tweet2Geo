@@ -1,10 +1,10 @@
 # Configuration files
-config.py
-config_topics.py
+Configuration files
 
 # folders
 Data analysis/Network measures/old
 Data analysis/Choroplets/old
+
 
 # directory tree structure
 tree_folders_files.py
