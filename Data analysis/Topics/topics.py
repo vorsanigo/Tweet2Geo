@@ -56,7 +56,15 @@ parser.add_argument('-umap_param',
 parser.add_argument('-hdbscan_param',
                     type=int,
                     default=70,
-                    help='HDBSCAN parameter')
+                    help='HDBSCAN parameter: 70 for EU, 30 for SA, 150 for US')
+parser.add_argument('-top_n_words',
+                    type=int,
+                    default=30,
+                    help='top n words for representation of the topic')
+parser.add_argument('-nr_topics',
+                    type=int,
+                    default=10,
+                    help='Number of topics we want')
 parser.add_argument('-model',
                     type=str,
                     default='sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
@@ -90,10 +98,20 @@ tweet_id_col = 'id'
 umap_param = args.umap_param # 15
 hdbscan_param = args.hdbscan_param #30 #70 #150
 
+# set number of topics
+nr_topics = args.nr_topics
+if nr_topics == -1:
+    nr_topics = "auto"
+
+# set number of representative words
+top_n_words = args.top_n_words
+
+
+
 # outputs
-df_topic_document = emb_dir + 'topic_' + region + '_' + str(hdbscan_param) + '.csv'
-df_topic_info = emb_dir + 'doc_info_' + region + '_' + str(hdbscan_param) + '.csv'
-topic_model_path = emb_dir + 'topic_model_' + str(hdbscan_param) + '_' + region
+df_topic_document = emb_dir + 'topic_' + region + '_' + str(nr_topics) + '.csv'
+df_topic_info = emb_dir + 'doc_info_' + region + '_' + str(nr_topics) + '.csv'
+topic_model_path = emb_dir + 'topic_model_' + str(nr_topics) + '_' + region
 
 
 
@@ -195,9 +213,11 @@ topic_model = BERTopic(
   umap_model=umap_model,
   hdbscan_model=hdbscan_model,
   representation_model=representation_model,
+  top_n_words=top_n_words,
+  nr_topics=nr_topics,
 
   # Hyperparameters
-  top_n_words=10,
+  #top_n_words=10,
   verbose=True,
   #nr_topics = n
 
