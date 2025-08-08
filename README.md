@@ -79,4 +79,5 @@ The final datasets containing the matrices of the mentions per day between count
 5)  Inside folder `Topics`:
      - run script `embeddings.py` to extract the embeddings from the tweets text (you can change the arguments to pass by command line: region of the world (EU, SA, US), path of the dataset to use to extract the embeddings, model for embeddings extraction)
      - run script `topics.py` to extract the topics from the tweets (you can change the arguments to pass by command line: region of the world (EU, SA, US), UMAP and HDBSCAN parameters, top n words for the topic, number of macro topics, model used for embeddings extraction)
+     - run script `labels_llm` to obtain the labels of the selected topics, which are in folder `Data analysys/Topics/topics_results`
     
