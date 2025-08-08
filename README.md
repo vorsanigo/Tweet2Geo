@@ -25,7 +25,7 @@ It builds the networks of international interest and it adopts gravity models to
 │   │   ├── EU_network_measures.ipynb
 │   │   ├── SA_network_measures.ipynb
 │   │   └── US_network_measures no wa.ipynb
-│   └── Topics                                  <- Scripts for embeddings generation, topic modeling, and generation of labels for the topics
+│   └── Topics                                  <- Scripts for embeddings generation, topic modeling, and generation of labels of topics
 │       ├── embeddings.py                       
 │       ├── topics.py
 |       └── labels_llm.py                                           
